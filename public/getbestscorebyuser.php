@@ -3,6 +3,9 @@
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
   
 // database connection will be here
 
@@ -16,12 +19,17 @@ $db = $database->getConnection();
   
 // initialize object
 $score = new score($db);
+$data = json_decode(file_get_contents("php://input"));
+
+$score->ID_User = $data->ID_User;
+$score->Score = $data->Score;
   
 // read products will be here
 
 // query products
-$stmt = $score->read();
+$stmt = $score->getbestscorebyuser();
 $num = $stmt->rowCount();
+ 
 
 
 // check if more than 0 record found

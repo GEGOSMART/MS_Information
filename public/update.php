@@ -30,30 +30,7 @@ $score->Score = $data->Score;
 $score->DatePlayed = $data->DatePlayed;
 $score->ID_Game = $data->ID_Game;
   
-/**
-   * @OA\Post(
-   *     path="/update.php",
-   *     summary="",
-   *     description="Updates an object by id",
-   *     @OA\RequestBody(
-   *         description="Client side search object",
-   *         required=true,
-   *         @OA\MediaType(
-   *             mediaType="application/json",                 
-   *         @OA\Schema(ref="#/components/schemas/SearchObject")
-   *         )
-   *     ),
-   *     @OA\Response(
-   *         response=200,
-   *         description="score was updated.",
-   *     @OA\Schema(ref="#/components/schemas/SearchResultObject)   
-   *     ), 
-   *     @OA\Response(
-   *         response=503,
-   *         description="Unable to update score."
-   *     )   
-   * )
-   */
+
 
 // update the score
 if($score->update()){

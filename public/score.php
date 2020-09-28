@@ -130,5 +130,35 @@ function delete(){
     return false;
 }
 
+function getbestscorebyuser(){
+  
+    // delete query
+    $query = "SELECT * FROM " . $this->table_ID_User . " WHERE ID_User = ? AND ID_Game = ? ORDER BY Score DESC";
+  
+    // prepare query
+    $stmt = $this->conn->prepare($query);
+  
+  
+    // execute query
+    if($stmt->execute()){
+        return true;
+    }
+  
+    return false;
+}
+
+function getrecordsofgame(){
+  
+    // delete query
+    $query = "SELECT * FROM " . $this->table_ID_User . " ID_Game = ? ORDER BY Score DESC";
+  
+    // prepare query
+    $stmt = $this->conn->prepare($query);
+  
+  
+    // execute query
+    $stmt->execute();
+}
+
 }
 ?>
