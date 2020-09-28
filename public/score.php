@@ -2,7 +2,6 @@
 class score{
  
 
-    use OpenApi\Annotations;
  
     // database connection and table ID_User
     private $conn;
