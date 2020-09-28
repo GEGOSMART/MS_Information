@@ -22,7 +22,7 @@ $score = new score($db);
 $data = json_decode(file_get_contents("php://input"));
 
 $score->ID_User = $data->ID_User;
-$score->Score = $data->Score;
+$score->ID_Game = $data->ID_Game;
   
 // read products will be here
 
