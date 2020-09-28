@@ -4,7 +4,7 @@
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Methods: DELETE");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
   
@@ -25,30 +25,6 @@ $data = json_decode(file_get_contents("php://input"));
 // set product id to be deleted
 $score->ID = $data->ID;
 
-/**
-   * @OA\Post(
-   *     path="/delete.php",
-   *     summary="",
-   *     description="delete an object  table score"
-   *     @OA\RequestBody(
-   *         description="Client side search object",
-   *         required=true,
-   *         @OA\MediaType(
-   *             mediaType="application/json",                 
-   *         @OA\Schema(ref="#/components/schemas/SearchObject")
-   *         )
-   *     ),
-   *     @OA\Response(
-   *         response=200
-   *         description="Success",
-   *     @OA\Schema(ref="#/components/schemas/SearchResultObject)   
-   *     ), 
-   *     @OA\Response(
-   *         response=503,
-   *         description="Unable to create score."
-   *     )   
-   * )
-   */
   
 // delete the product
 if($score->delete()){
