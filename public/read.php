@@ -24,7 +24,32 @@ $score = new score($db);
 // query products
 $stmt = $score->read();
 $num = $stmt->rowCount();
-  
+ 
+/**
+   * @OA\Post(
+   *     path="/read.php",
+   *     summary="Returns all objects in the database",
+   *     description="Search for all records, if found return it!",
+   *     @OA\RequestBody(
+   *         description="Client side search object",
+   *         required=true,
+   *         @OA\MediaType(
+   *             mediaType="application/json",                 
+   *         @OA\Schema(ref="#/components/schemas/SearchObject")
+   *         )
+   *     ),
+   *     @OA\Response(
+   *         response=200,
+   *         description="Success",
+   *     @OA\Schema(ref="#/components/schemas/SearchResultObject)   
+   *     ), 
+   *     @OA\Response(
+   *         response=404,
+   *         description="Could Not Find Resource"
+   *     )   
+   * )
+   */
+
 // check if more than 0 record found
 if($num>0){
   

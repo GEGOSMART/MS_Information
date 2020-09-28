@@ -24,6 +24,36 @@ $score = new score($db);
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
   
+
+/**
+   * @OA\Post(
+   *     path="/create.php",
+   *     summary="",
+   *     description="create an object for table score"
+   *     @OA\RequestBody(
+   *         description="Client side search object",
+   *         required=true,
+   *         @OA\MediaType(
+   *             mediaType="application/json",                 
+   *         @OA\Schema(ref="#/components/schemas/SearchObject")
+   *         )
+   *     ),
+   *     @OA\Response(
+   *         response=201,
+   *         description="Success",
+   *     @OA\Schema(ref="#/components/schemas/SearchResultObject)   
+   *     ), 
+   *     @OA\Response(
+   *         response=404,
+   *         description="Could Not Find Resource"
+   *     ) , 
+   *     @OA\Response(
+   *         response=503,
+   *         description="Unable to create score."
+   *     )   
+   * )
+   */
+
 // make sure data is not empty
 if(
     !empty($data->ID_User) &&

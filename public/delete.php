@@ -25,6 +25,31 @@ $data = json_decode(file_get_contents("php://input"));
   
 // set product id to be deleted
 $score->ID = $data->ID;
+
+/**
+   * @OA\Post(
+   *     path="/delete.php",
+   *     summary="",
+   *     description="delete an object  table score"
+   *     @OA\RequestBody(
+   *         description="Client side search object",
+   *         required=true,
+   *         @OA\MediaType(
+   *             mediaType="application/json",                 
+   *         @OA\Schema(ref="#/components/schemas/SearchObject")
+   *         )
+   *     ),
+   *     @OA\Response(
+   *         response=200
+   *         description="Success",
+   *     @OA\Schema(ref="#/components/schemas/SearchResultObject)   
+   *     ), 
+   *     @OA\Response(
+   *         response=503,
+   *         description="Unable to create score."
+   *     )   
+   * )
+   */
   
 // delete the product
 if($score->delete()){
