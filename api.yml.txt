@@ -1,12 +1,12 @@
 swagger: "2.0"
 info:
-  description: "Descripción de la API-REST del microservicio de gestión de juegos implementado en `ruby` para la asignatura Arquitectura de Software."
+  description: "Descripción de la API-REST del microservicio de información en `php` para la asignatura Arquitectura de Software."
   version: "1.0.0"
   title: "game_rubyms"
   contact:
-    email: "ejaramillos@unal.edu.co"
+    email: "ebastidasp@unal.edu.co"
 
-host: "host:3000"
+host: "host:2000"
 basePath: "/"
 tags:
 - name: "questions"
@@ -43,8 +43,6 @@ paths:
         summary: "Insert new record into table score"
         description: ""
         operationId: "create"
-        consumes:
-        - "application/json"
         produces:
         - "application/json"
         parameters:
@@ -80,8 +78,6 @@ paths:
         summary: "Update record of table score"
         description: ""
         operationId: "update"
-        consumes:
-        - "application/json"
         produces:
         - "application/json"
         parameters:
@@ -121,8 +117,6 @@ paths:
         summary: "Delete record of table score"
         description: ""
         operationId: "delete"
-        consumes:
-        - "application/json"
         produces:
         - "application/json"
         parameters:
@@ -142,8 +136,6 @@ paths:
         summary: "Get records of user and game and order them in descending order by score"
         description: ""
         operationId: "get best score by user and game"
-        consumes:
-        - "application/json"
         produces:
         - "application/json"
         parameters:
@@ -170,8 +162,6 @@ paths:
         summary: "Show highest scores of a game"
         description: ""
         operationId: "get records of a game"
-        consumes:
-        - "application/json"
         produces:
         - "application/json"
         parameters:
