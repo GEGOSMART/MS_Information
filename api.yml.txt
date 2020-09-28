@@ -1,0 +1,223 @@
+swagger: "2.0"
+info:
+  description: "Descripción de la API-REST del microservicio de gestión de juegos implementado en `ruby` para la asignatura Arquitectura de Software."
+  version: "1.0.0"
+  title: "game_rubyms"
+  contact:
+    email: "ejaramillos@unal.edu.co"
+
+host: "host:3000"
+basePath: "/"
+tags:
+- name: "questions"
+  description: "Retrieve the game structure for an specific game category"
+schemes:
+- "http"
+
+paths:
+  /read.php:
+    post:
+        summary: "Get all records of table score"
+        description: ""
+        operationId: "read"
+        consumes:
+        - "application/json"
+        produces:
+        - "application/json"
+        responses:
+          "200":
+            description: "Successful operation. Returns all records of table score."
+            schema:
+              $ref: "#/definitions/ScoreList"
+          "404":
+            description: "No scores found."
+            schema:
+              type: "object"
+              properties:
+                ERROR:
+                  type: "string"
+                  example: ""
+             
+  /create.php:
+    post:
+        summary: "Insert new record into table score"
+        description: ""
+        operationId: "create"
+        consumes:
+        - "application/json"
+        produces:
+        - "application/json"
+        parameters:
+        - in: query
+          name: ID_User
+          type: integer
+          required: true
+          description: Id of the user
+        - in: query
+          name: Score
+          type: integer
+          required: true
+          description: Score that the user got in the game
+        - in: query
+          name: DatePlayed
+          type: string
+          required: true
+          description: Date the user played the game
+        - in: query
+          name: ID_Game
+          type: integer
+          required: true
+          description: Game that was played by the user
+        responses:
+          "200":
+            description: "score was created."
+          "400":
+            description: "Unable to create score. Data is incomplete."
+             
+             
+  /update.php:
+    post:
+        summary: "Update record of table score"
+        description: ""
+        operationId: "update"
+        consumes:
+        - "application/json"
+        produces:
+        - "application/json"
+        parameters:
+        - in: query
+          name: ID
+          type: integer
+          required: true
+          description: Id of the record
+        - in: query
+          name: ID_User
+          type: integer
+          required: true
+          description: Id of the user
+        - in: query
+          name: Score
+          type: integer
+          required: true
+          description: Score that the user got in the game
+        - in: query
+          name: DatePlayed
+          type: string
+          required: true
+          description: Date the user played the game
+        - in: query
+          name: ID_Game
+          type: integer
+          required: true
+          description: Game that was played by the user
+        responses:
+          "200":
+            description: "score was updated."
+          "503":
+            description: "Unable to update score."
+             
+  /delete.php:
+    post:
+        summary: "Delete record of table score"
+        description: ""
+        operationId: "delete"
+        consumes:
+        - "application/json"
+        produces:
+        - "application/json"
+        parameters:
+        - in: query
+          name: ID
+          type: integer
+          required: true
+          description: Id of the record
+        responses:
+          "200":
+            description: "score was deleted."
+          "503":
+            description: "Unable to delete score."
+             
+  /getbestscorebyuser.php:
+    post:
+        summary: "Get records of user and game and order them in descending order by score"
+        description: ""
+        operationId: "get best score by user and game"
+        consumes:
+        - "application/json"
+        produces:
+        - "application/json"
+        parameters:
+        - in: query
+          name: ID_User
+          type: integer
+          required: true
+          description: Id of the user
+        - in: query
+          name: ID_Game
+          type: integer
+          required: true
+          description: Game that was played by the user
+        responses:
+          "200":
+            description: ""
+            schema:
+              $ref: "#/definitions/ScoreList"
+          "503":
+            description: "No scores found."
+             
+  /getrecordsofgame.php:
+    post:
+        summary: "Show highest scores of a game"
+        description: ""
+        operationId: "get records of a game"
+        consumes:
+        - "application/json"
+        produces:
+        - "application/json"
+        parameters:
+        - in: query
+          name: ID_Game
+          type: integer
+          required: true
+          description: Game that was played by the user
+        responses:
+          "200":
+            description: ""
+            schema:
+              $ref: "#/definitions/ScoreList"
+          "503":
+            description: "No scores found."
+             
+
+
+
+
+
+definitions:
+  
+  Score:
+    type: "object"
+    properties:
+          ID:
+            type: "integer"
+            format: "int64"
+            example: "10"
+          ID_User:
+            type: "integer"
+            example: "103"
+          Score:
+            type: "integer"
+            example: "20"
+          DatePlayed:
+            type: "string"
+            example: "2020-9-28 10:10"
+          ID_Game:
+            type: "integer"
+            example: "3"
+            
+ 
+    
+  ScoreList:
+    type: "array"
+    items:
+      $ref: "#/definitions/Score"
