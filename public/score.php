@@ -133,7 +133,7 @@ function delete(){
 function getbestscorebyuser(){
   
     // delete query
-    $query = "SELECT * FROM " . $this->table_ID_User . " WHERE ID_User = ? AND ID_Game = ? ORDER BY Score DESC";
+    $query = "SELECT * FROM " . $this->table_ID_User . " WHERE ID_User = :ID_User AND ID_Game = :ID_Game ORDER BY Score DESC";
   
     // prepare query
     $stmt = $this->conn->prepare($query);
