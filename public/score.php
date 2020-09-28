@@ -138,7 +138,11 @@ function getbestscorebyuser(){
     // prepare query
     $stmt = $this->conn->prepare($query);
   
-  
+    $this->ID_User=htmlspecialchars(strip_tags($this->ID_User));
+    $this->ID_Game=htmlspecialchars(strip_tags($this->ID_Game));
+
+    $stmt->bindParam(':ID_User', $this->ID_User);
+    $stmt->bindParam(':ID_Game', $this->ID_Game);
     
     // execute query
     $stmt->execute();
