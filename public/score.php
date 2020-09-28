@@ -146,6 +146,8 @@ function getbestscorebyuser(){
     
     // execute query
     $stmt->execute();
+
+    return $stmt;
 }
 
 function getrecordsofgame(){
@@ -159,6 +161,7 @@ function getrecordsofgame(){
   
     // execute query
     $stmt->execute();
+
 }
 
 }
