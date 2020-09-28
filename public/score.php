@@ -153,14 +153,20 @@ function getbestscorebyuser(){
 function getrecordsofgame(){
   
     // delete query
-    $query = "SELECT * FROM " . $this->table_ID_User . " ID_Game = ? ORDER BY Score DESC";
+    $query = "SELECT * FROM " . $this->table_ID_User . " ID_Game = :ID_Game ORDER BY Score DESC";
   
     // prepare query
     $stmt = $this->conn->prepare($query);
+
+    $this->ID_Game=htmlspecialchars(strip_tags($this->ID_Game));
+
+
+    $stmt->bindParam(':ID_Game', $this->ID_Game);
   
   
     // execute query
     $stmt->execute();
+    return $stmt;
 
 }
 
