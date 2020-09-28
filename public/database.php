@@ -1,4 +1,7 @@
 <?php
+use OpenApi\Annotations as OA;
+
+
 class Database{
   
     // specify your own database credentials

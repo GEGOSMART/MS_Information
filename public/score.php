@@ -1,6 +1,9 @@
 <?php
 class score{
-  
+ 
+
+ use OpenApi\Annotations as OA;
+ 
     // database connection and table ID_User
     private $conn;
     private $table_ID_User = "score";

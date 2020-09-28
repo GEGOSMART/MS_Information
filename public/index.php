@@ -1,5 +1,7 @@
 <?php
 
+use OpenApi\Annotations as OA;
+
 // Valid PHP Version?
 $minPHPVersion = '7.2';
 if (phpversion() < $minPHPVersion)
