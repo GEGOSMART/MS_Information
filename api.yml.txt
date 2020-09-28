@@ -16,7 +16,7 @@ schemes:
 
 paths:
   /read.php:
-    post:
+    get:
         summary: "Get all records of table score"
         description: ""
         operationId: "read"
@@ -74,7 +74,7 @@ paths:
              
              
   /update.php:
-    post:
+    put:
         summary: "Update record of table score"
         description: ""
         operationId: "update"
@@ -113,7 +113,7 @@ paths:
             description: "Unable to update score."
              
   /delete.php:
-    post:
+    delete:
         summary: "Delete record of table score"
         description: ""
         operationId: "delete"
@@ -132,7 +132,7 @@ paths:
             description: "Unable to delete score."
              
   /getbestscorebyuser.php:
-    post:
+    get:
         summary: "Get records of user and game and order them in descending order by score"
         description: ""
         operationId: "get best score by user and game"
@@ -158,10 +158,12 @@ paths:
             description: "No scores found."
              
   /getrecordsofgame.php:
-    post:
+    get:
         summary: "Show highest scores of a game"
         description: ""
         operationId: "get records of a game"
+        consumes:
+        - "json"
         produces:
         - "application/json"
         parameters:
