@@ -139,12 +139,9 @@ function getbestscorebyuser(){
     $stmt = $this->conn->prepare($query);
   
   
+    
     // execute query
-    if($stmt->execute()){
-        return true;
-    }
-  
-    return false;
+    $stmt->execute();
 }
 
 function getrecordsofgame(){
