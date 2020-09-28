@@ -4,7 +4,6 @@
  * @OA\Info(title="Search API", version="1.0.0")
  */
 
-use OpenApi\Annotations as OA;
 
 // Valid PHP Version?
 $minPHPVersion = '7.2';
