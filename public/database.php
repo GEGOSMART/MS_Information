@@ -2,7 +2,7 @@
 class Database{
   
     // specify your own database credentials
-    private $host = "localhost";
+    private $host = "msinformation.cpxn66rywhwf.us-east-1.rds.amazonaws.com";
     private $db_name = "MS_Information";
     private $username = "root";
     private $password = "germania";
