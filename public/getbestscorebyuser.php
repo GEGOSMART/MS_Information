@@ -37,7 +37,6 @@ if($num>0){
   
     // products array
     $score_arr=array();
-    $score_arr["records"]=array();
   
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -57,7 +56,7 @@ if($num>0){
 
         );
   
-        array_push($score_arr["records"], $score_item);
+        array_push($score_arr, $score_item);
     }
   
     // set response code - 200 OK
