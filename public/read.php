@@ -29,7 +29,7 @@ if($num>0){
   
     // products array
     $score_arr=array();
-    $score_arr["score"]=array();
+    $score_arr["scores"]=array();
   
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -40,7 +40,7 @@ if($num>0){
         // just $name only
         extract($row);
   
-        $score_item=array(
+        $score_item["score"]=array(
             "ID" => $ID,
             "ID_User" => $ID_User,
             "Score" => $Score,
@@ -49,7 +49,7 @@ if($num>0){
 
         );
   
-        array_push($score_arr["score"], $score_item);
+        array_push($score_arr["scores"], $score_item["score"]);
     }
   
     // set response code - 200 OK
