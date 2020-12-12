@@ -6,8 +6,3 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 COPY . ./PHPapp
 WORKDIR ./PHPapp
 CMD ["php", "-S", "0.0.0.0:2000", "-t","public"]
-ENV DB_HOST=msinformation.cpxn66rywhwf.us-east-1.rds.amazonaws.com
-ENV DB_PORT=3306
-ENV DB_USER=root
-ENV DB_PASSWORD=germania
-ENV DB_NAME=MS_Information
