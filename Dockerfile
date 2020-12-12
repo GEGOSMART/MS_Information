@@ -5,7 +5,7 @@ RUN apt-get update -y && \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 COPY . ./PHPapp
 WORKDIR ./PHPapp
-CMD ["php", "-S", "0.0.0.0:3000", "-t","public"]
+CMD ["php", "-S", "0.0.0.0:2000", "-t","public"]
 ENV DB_HOST=msinformation.cpxn66rywhwf.us-east-1.rds.amazonaws.com
 ENV DB_PORT=3306
 ENV DB_USER=root
